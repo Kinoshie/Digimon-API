@@ -1,0 +1,19 @@
+import requests
+
+api_url = "https://digi-api.com/api/v1/" 
+
+def get_digimon_info(name):
+    url = f"{api_url}/digimon/{name}"
+    response = requests.get(url)
+    print(response)
+
+
+    if response.status_code == 200:
+      digimon_data = response.json() 
+      print(digimon_data)
+    else:
+        print(f"Failed to retrive {response.status_code}")  
+
+Digimon_name = "25" #here you put the name or id of the digimon you would like information on. here is the site- https://digi-api.com/ 
+
+get_digimon_info(Digimon_name)
